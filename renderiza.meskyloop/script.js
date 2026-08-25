@@ -340,7 +340,7 @@ loader.load(
 
     controls.target.set(
       0,
-      0,
+      -maxDim * 0.05,
       0
     );
 
