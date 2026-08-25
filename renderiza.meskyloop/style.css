@@ -109,25 +109,37 @@ body {
 .hero-text {
 
   position: absolute;
+
   left: 50%;
-transform: translateX(-50%);
+  bottom: 90px;
+
+  transform: translateX(-50%);
+
+  width: 100%;
 
   z-index: 5;
 
   pointer-events: none;
-font-weight: 600;
- 
+
+  text-align: center;
 }
 
 
 .hero-text p {
 
+  margin: 0 auto;
+
+  max-width: 320px;
+
   font-size: 16px;
 
   letter-spacing: 0.04em;
 
-  max-width: 200px;
+  font-weight: 700;
 
+  color: #3f4442;
+
+  text-align: center;
 }
 
 
@@ -138,14 +150,12 @@ font-weight: 600;
   position: absolute;
 
   right: 45px;
-  bottom: 40px;
+  bottom: 42px;
 
   z-index: 5;
 
   display: flex;
   align-items: center;
-
-  gap: 12px;
 
   font-size: 11px;
 
@@ -156,12 +166,15 @@ font-weight: 600;
   pointer-events: none;
 }
 .scroll-arrow {
+
   position: absolute;
 
   left: 50%;
-  bottom: 28px;
+  bottom: 22px;
 
   z-index: 10;
+
+  transform: translateX(-50%);
 
   font-size: 13px;
   font-weight: 500;
@@ -176,9 +189,12 @@ font-weight: 600;
 
   pointer-events: none;
 
-  animation: scrollArrowBlink 2s ease-in-out infinite;
+  animation:
+    scrollArrowBlink
+    2s
+    ease-in-out
+    infinite;
 }
-
 
 @keyframes scrollArrowBlink {
 
@@ -206,9 +222,9 @@ font-weight: 600;
     opacity: 0;
     transform: translate(-50%, 18px);
   }
-}
 
-}
+
+
 
 }
 
@@ -961,11 +977,52 @@ footer p {
 
   .hero-text {
 
-    left: 24px;
+  left: 50%;
 
-    bottom: 80px;
+  bottom: 105px;
 
-  }
+  transform: translateX(-50%);
+
+  width: calc(100% - 48px);
+
+  text-align: center;
+}
+
+
+.hero-text p {
+
+  max-width: 280px;
+
+  margin: 0 auto;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  color: #3f4442;
+
+  text-align: center;
+}
+
+
+.scroll-indicator {
+
+  left: 24px;
+
+  right: auto;
+
+  bottom: 62px;
+}
+
+
+.scroll-arrow {
+
+  left: 50%;
+
+  bottom: 22px;
+
+  font-size: 13px;
+}
 
 
   .scroll-indicator {
@@ -1115,21 +1172,5 @@ footer p {
     gap: 30px;
 
   }
-.scroll-zone {
-  position: absolute;
 
-  left: 0;
-  bottom: 0;
-
-  width: 100%;
-  height: 150px;
-
-  z-index: 4;
-
-  background: transparent;
-
-  pointer-events: auto;
-
-  touch-action: pan-y;
-}
 }
