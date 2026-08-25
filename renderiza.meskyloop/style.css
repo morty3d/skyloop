@@ -861,12 +861,24 @@ footer p {
 }
 
 
-
+.scroll-zone {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 160px;
+  z-index: 4;
+  background: transparent;
+  pointer-events: auto;
+  touch-action: pan-y;
+}
 /* =========================================================
    MOBILE
 ========================================================= */
 
 @media
+
+
 (max-width: 700px) {
 
 
@@ -913,7 +925,9 @@ footer p {
 
   }
 
-
+.scroll-zone {
+  height: 190px;
+}
   h1,
   h2 {
 
