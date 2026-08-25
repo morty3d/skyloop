@@ -157,52 +157,55 @@ body {
   pointer-events: none;
 }
 .scroll-arrow {
+  position: absolute;
 
-  font-size: 24px;
+  left: 50%;
+  bottom: 28px;
 
+  transform: translateX(-50%);
+
+  z-index: 6;
+
+  font-size: 52px;
+  font-weight: 200;
   line-height: 1;
 
   opacity: 0;
 
-  animation:
-    scrollArrowBlink 4s
-    ease-in-out
-    infinite;
+  pointer-events: none;
+
+  animation: scrollArrowBlink 2s ease-in-out infinite;
 }
 
 
 @keyframes scrollArrowBlink {
 
-  /* aparece */
-
   0% {
     opacity: 0;
-    transform: translateY(-4px);
+    transform: translateX(-50%) translateY(-8px);
   }
 
-  5% {
+  15% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
 
-  20% {
+  45% {
     opacity: 1;
-    transform: translateY(5px);
+    transform: translateX(-50%) translateY(10px);
   }
 
-  /* desaparece aprox. al segundo */
-
-  25% {
+  60% {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateX(-50%) translateY(15px);
   }
-
-  /* permanece escondida hasta los 4 segundos */
 
   100% {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateX(-50%) translateY(15px);
   }
+
+}
 
 }
 
