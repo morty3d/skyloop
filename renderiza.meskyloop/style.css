@@ -109,17 +109,14 @@ body {
 .hero-text {
 
   position: absolute;
-
-  left: 45px;
-
-  bottom: 45px;
+  left: 50%;
+transform: translateX(-50%);
 
   z-index: 5;
 
   pointer-events: none;
 font-weight: 600;
-  left: 50%;
-transform: translateX(-50%);
+ 
 }
 
 
