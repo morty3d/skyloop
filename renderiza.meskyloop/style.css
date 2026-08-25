@@ -141,7 +141,9 @@ body {
 
   text-align: center;
 }
-
+.highlight-orange {
+  color: #ff6b2c;
+}
 
 /* SCROLL */
 
