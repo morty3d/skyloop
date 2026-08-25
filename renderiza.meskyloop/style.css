@@ -118,6 +118,8 @@ body {
 
   pointer-events: none;
 font-weight: 600;
+  left: 50%;
+transform: translateX(-50%);
 }
 
 
