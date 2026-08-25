@@ -139,16 +139,14 @@ body {
   position: absolute;
 
   right: 45px;
-
   bottom: 40px;
 
   z-index: 5;
 
   display: flex;
-
   align-items: center;
 
-  gap: 15px;
+  gap: 12px;
 
   font-size: 11px;
 
@@ -156,8 +154,57 @@ body {
 
   text-transform: uppercase;
 
+  pointer-events: none;
+}
+.scroll-arrow {
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  opacity: 0;
+
+  animation:
+    scrollArrowBlink 4s
+    ease-in-out
+    infinite;
 }
 
+
+@keyframes scrollArrowBlink {
+
+  /* aparece */
+
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(5px);
+  }
+
+  /* desaparece aprox. al segundo */
+
+  25% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  /* permanece escondida hasta los 4 segundos */
+
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+}
 
 .scroll-line {
 
