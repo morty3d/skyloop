@@ -1,556 +1,698 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
+
+  <meta charset="UTF-8">
 
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
-  />
+  >
 
-  <title>Skyloop 3D</title>
+  <title>Skyloop — Drone in a Box</title>
 
-  <style>
+  <link
+    rel="stylesheet"
+    href="./style.css"
+  >
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
- 
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #f4f4f2;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    #viewer {
-      width: 100%;
-      height: 100%;
-      position: relative;
-    }
-
-    canvas {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-
-    /* LOADING */
-
-    #loading {
-      position: absolute;
-      inset: 0;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: #f4f4f2;
-
-      z-index: 10;
-
-      transition:
-        opacity 0.5s ease,
-        visibility 0.5s ease;
-    }
-
-    #loading.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .loader {
-      width: 34px;
-      height: 34px;
-
-      border: 2px solid rgba(0, 0, 0, 0.12);
-      border-top-color: #111;
-
-      border-radius: 50%;
-
-      animation: spin 0.8s linear infinite;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-  </style>
 </head>
 
 
 <body>
 
-  <div id="viewer">
 
-    <div id="loading">
-      <div class="loader"></div>
-    </div>
+<!-- =========================================================
+     HERO / VISOR 3D
+========================================================= -->
+
+<section id="hero">
+
+
+  <div id="viewer"></div>
+
+
+  <header class="hero-header">
+
+    <img
+      src="./assets/logoskyloop.png"
+      alt="Skyloop"
+      class="skyloop-logo"
+    >
+
+  </header>
+
+
+  <div class="hero-text">
+
+    <p>
+      Tecnología que despega
+      tu productividad
+    </p>
 
   </div>
 
 
-  <script type="importmap">
-  {
-    "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
-    }
+  <div class="scroll-indicator">
+
+    <span>
+      Descubrí Skyloop
+    </span>
+
+    <div class="scroll-line"></div>
+
+  </div>
+
+
+  <div id="loading">
+
+    <div class="loader"></div>
+
+    <span>
+      Cargando Skyloop
+    </span>
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     INTRO
+========================================================= -->
+
+<section class="section intro-section">
+
+  <div class="section-container">
+
+    <span class="eyebrow">
+      SKYLOOP
+    </span>
+
+    <h1>
+      Autonomía para
+      tus operaciones.
+    </h1>
+
+    <p class="lead">
+
+      Una solución integral que combina
+      una base de carga automatizada con
+      una plataforma de software para
+      simplificar y automatizar las
+      operaciones con drones.
+
+    </p>
+
+
+    <div class="big-values">
+
+      <span>
+        Mayor autonomía.
+      </span>
+
+      <span>
+        Más seguridad.
+      </span>
+
+      <span>
+        Mejor productividad.
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     BENEFICIOS
+========================================================= -->
+
+<section class="section benefits-section">
+
+  <div class="section-container">
+
+    <span class="eyebrow">
+      BENEFICIOS
+    </span>
+
+    <h2>
+      Una operación.
+      <br>
+      Todo automatizado.
+    </h2>
+
+
+    <div class="benefits-grid">
+
+
+      <article class="benefit">
+
+        <span class="benefit-number">
+          01
+        </span>
+
+        <h3>
+          Automatización
+          completa
+        </h3>
+
+        <p>
+
+          El sistema Drone in a Box
+          opera automáticamente desde
+          el despegue hasta el
+          aterrizaje.
+
+        </p>
+
+      </article>
+
+
+
+      <article class="benefit">
+
+        <span class="benefit-number">
+          02
+        </span>
+
+        <h3>
+          Tecnología
+          segura
+        </h3>
+
+        <p>
+
+          Sistemas diseñados para
+          priorizar la seguridad y
+          responder en tiempo real
+          durante cada operación.
+
+        </p>
+
+      </article>
+
+
+
+      <article class="benefit">
+
+        <span class="benefit-number">
+          03
+        </span>
+
+        <h3>
+          Monitoreo
+          remoto
+        </h3>
+
+        <p>
+
+          Acceso a información,
+          operaciones y transmisiones
+          en tiempo real desde
+          cualquier lugar.
+
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FUNCIONAMIENTO
+========================================================= -->
+
+<section class="section operation-section">
+
+  <div class="section-container">
+
+    <span class="eyebrow">
+      FUNCIONAMIENTO
+    </span>
+
+    <h2>
+      Del despegue
+      a los datos.
+    </h2>
+
+
+    <div class="operation-list">
+
+
+      <div class="operation">
+
+        <span>01</span>
+
+        <div>
+
+          <h3>
+            Planificación
+          </h3>
+
+          <p>
+            Definición de rutas,
+            parámetros y tareas.
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="operation">
+
+        <span>02</span>
+
+        <div>
+
+          <h3>
+            Despegue
+          </h3>
+
+          <p>
+            Inicio programado o
+            activado por un evento.
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="operation">
+
+        <span>03</span>
+
+        <div>
+
+          <h3>
+            Vuelo
+          </h3>
+
+          <p>
+            Video en vivo y captura
+            automática de imágenes.
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="operation">
+
+        <span>04</span>
+
+        <div>
+
+          <h3>
+            Aterrizaje
+          </h3>
+
+          <p>
+            Regreso automático
+            a la estación.
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="operation">
+
+        <span>05</span>
+
+        <div>
+
+          <h3>
+            Recarga
+          </h3>
+
+          <p>
+            Carga automática de
+            la batería.
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="operation">
+
+        <span>06</span>
+
+        <div>
+
+          <h3>
+            Procesamiento
+          </h3>
+
+          <p>
+            Sincronización de imágenes,
+            videos y análisis de datos.
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HARDWARE
+========================================================= -->
+
+<section class="section hardware-section">
+
+  <div class="section-container">
+
+    <span class="eyebrow">
+      LA ESTACIÓN
+    </span>
+
+    <h2>
+      Preparada para
+      operar en campo.
+    </h2>
+
+
+    <div class="hardware-grid">
+
+
+      <div class="hardware-item">
+
+        <h3>
+          PC de alto rendimiento
+        </h3>
+
+        <p>
+          Procesamiento rápido de datos
+          e información actualizada.
+        </p>
+
+      </div>
+
+
+
+      <div class="hardware-item">
+
+        <h3>
+          Apta para intemperie
+        </h3>
+
+        <p>
+          La estructura protege el
+          sistema para instalaciones
+          en exteriores.
+        </p>
+
+      </div>
+
+
+
+      <div class="hardware-item">
+
+        <h3>
+          Ethernet / WiFi / 4G
+        </h3>
+
+        <p>
+          Conectividad permanente con
+          Skyloop Cloud y acceso remoto.
+        </p>
+
+      </div>
+
+
+
+      <div class="hardware-item">
+
+        <h3>
+          Estación meteorológica
+        </h3>
+
+        <p>
+          Información climática
+          local en tiempo real.
+        </p>
+
+      </div>
+
+
+
+      <div class="hardware-item">
+
+        <h3>
+          Alimentación eléctrica
+        </h3>
+
+        <p>
+          Conexión de 220 V y
+          posibilidad de instalación
+          con paneles solares.
+        </p>
+
+      </div>
+
+
+
+      <div class="hardware-item">
+
+        <h3>
+          Respaldo UPS
+        </h3>
+
+        <p>
+          Continuidad energética para
+          los dispositivos de la base.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CLOUD
+========================================================= -->
+
+<section class="section cloud-section">
+
+  <div class="section-container cloud-container">
+
+
+    <div>
+
+      <span class="eyebrow">
+        SKYLOOP CLOUD
+      </span>
+
+      <h2>
+        El control,
+        desde cualquier lugar.
+      </h2>
+
+    </div>
+
+
+    <div class="cloud-list">
+
+      <p>
+        Información actualizada
+        en tiempo real.
+      </p>
+
+      <p>
+        Control remoto de
+        cada dron.
+      </p>
+
+      <p>
+        Programación personalizada
+        de vuelos.
+      </p>
+
+      <p>
+        Acceso a imágenes y videos
+        de todas las operaciones.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     APLICACIONES
+========================================================= -->
+
+<section class="section applications-section">
+
+  <div class="section-container">
+
+    <span class="eyebrow">
+      APLICACIONES
+    </span>
+
+    <h2>
+      Una plataforma.
+      <br>
+      Múltiples escenarios.
+    </h2>
+
+
+    <div class="applications-grid">
+
+
+      <article>
+
+        <span>
+          01
+        </span>
+
+        <h3>
+          Seguridad
+        </h3>
+
+        <p>
+
+          Vigilancia de zonas críticas
+          y respuesta automatizada
+          ante eventos.
+
+        </p>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          02
+        </span>
+
+        <h3>
+          Infraestructura
+        </h3>
+
+        <p>
+
+          Inspección remota de
+          instalaciones, equipos
+          y maquinaria.
+
+        </p>
+
+      </article>
+
+
+      <article>
+
+        <span>
+          03
+        </span>
+
+        <h3>
+          Grandes extensiones
+        </h3>
+
+        <p>
+
+          Supervisión automatizada
+          de terrenos, cultivos
+          y zonas amplias.
+
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<footer>
+
+  <img
+    src="./assets/logoskyloop.png"
+    alt="Skyloop"
+  >
+
+  <p>
+    Autonomous drone operations.
+  </p>
+
+</footer>
+
+
+
+<!-- =========================================================
+     THREE.JS
+========================================================= -->
+
+<script type="importmap">
+
+{
+  "imports": {
+
+    "three":
+    "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+
+    "three/addons/":
+    "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+
   }
-  </script>
+}
 
+</script>
 
-  <script type="module">
 
-    import * as THREE from "three";
+<script
+  type="module"
+  src="./script.js">
+</script>
 
-    import { OrbitControls }
-    from "three/addons/controls/OrbitControls.js";
-
-    import { GLTFLoader }
-    from "three/addons/loaders/GLTFLoader.js";
-    import { RGBELoader }
-from "three/addons/loaders/RGBELoader.js";
-
-
-    /* ---------------------------------------------------------
-       ESCENA
-    --------------------------------------------------------- */
-
-    const viewer = document.getElementById("viewer");
-    const loading = document.getElementById("loading");
-
-    const scene = new THREE.Scene();
-
-    scene.background = new THREE.Color(0x1a1a1a);
-
-
-
-    /* ---------------------------------------------------------
-       CAMARA
-    --------------------------------------------------------- */
-
-    const camera = new THREE.PerspectiveCamera(
-      35,
-      window.innerWidth / window.innerHeight,
-      0.01,
-      10000
-    );
-
-    camera.position.set(4, 3, 6);
-
-
-
-    /* ---------------------------------------------------------
-       RENDER
-    --------------------------------------------------------- */
-
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: false
-    });
-
-    renderer.setPixelRatio(
-      Math.min(window.devicePixelRatio, 2)
-    );
-
-    renderer.setSize(
-      window.innerWidth,
-      window.innerHeight
-    );
-
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-    renderer.toneMapping =
-      THREE.ACESFilmicToneMapping;
-
-    renderer.toneMappingExposure = .8;
-
-    renderer.shadowMap.enabled = true;
-
-    renderer.shadowMap.type =
-      THREE.PCFSoftShadowMap;
-
-    viewer.appendChild(renderer.domElement);
-
-
-
-    /* ---------------------------------------------------------
-       CONTROLES
-    --------------------------------------------------------- */
-
-    const controls =
-      new OrbitControls(
-        camera,
-        renderer.domElement
-      );
-
-    controls.enableDamping = true;
-
-    controls.dampingFactor = 0.06;
-
-    controls.enablePan = true;
-
-    controls.enableZoom = true;
-
-    controls.enableRotate = true;
-
-    controls.autoRotate = true;
-
-    controls.autoRotateSpeed = 0.45;
-
-
-
-    /* ---------------------------------------------------------
-       ILUMINACION
-    --------------------------------------------------------- */
-
-    const hemisphere =
-      new THREE.HemisphereLight(
-        0xffffff,
-        0xd8d8d8,
-        0
-      );
-
-    scene.add(hemisphere);
-
-
-
-    const keyLight =
-      new THREE.DirectionalLight(
-        0xffffff,
-        0
-      );
-
-    keyLight.position.set(
-      5,
-      8,
-      6
-    );
-
-    keyLight.castShadow = true;
-
-    scene.add(keyLight);
-
-
-
-    const fillLight =
-      new THREE.DirectionalLight(
-        0xffffff,
-        0
-      );
-
-    fillLight.position.set(
-      -5,
-      3,
-      4
-    );
-
-    scene.add(fillLight);
-
-
-
-    const backLight =
-      new THREE.DirectionalLight(
-        0xffffff,
-        0
-      );
-
-    backLight.position.set(
-      0,
-      5,
-      -6
-    );
-
-    scene.add(backLight);
-
-/* ---------------------------------------------------------
-   HDRI
---------------------------------------------------------- */
-
-const rgbeLoader = new RGBELoader();
-
-rgbeLoader.load(
-  "./assets/hdr1.hdr",
-  function (texture) {
-
-    texture.mapping =
-      THREE.EquirectangularReflectionMapping;
-
-    /* HDR usado como iluminación/reflejos */
-    scene.environment = texture;
-
-    /* NO mostramos el HDR de fondo */
-    scene.background =
-      new THREE.Color(0x1a1a1a);
-       // intensidad del HDRI
-    scene.environmentIntensity = 1.1;
-
-  },
-
-  undefined,
-
-  function (error) {
-
-    console.error(
-      "Error cargando HDR:",
-      error
-    );
-
-  }
-);
-
-    /* ---------------------------------------------------------
-       CARGAR SKYLOOP
-    --------------------------------------------------------- */
-
-    const loader =
-      new GLTFLoader();
-
-
-    loader.load(
-
-      "./assets/skyloop.glb",
-
-
-      function (gltf) {
-
-        const model = gltf.scene;
-
-        scene.add(model);
-
-
-
-        /* sombras */
-
-        model.traverse((child) => {
-
-          if (child.isMesh) {
-
-            child.castShadow = true;
-            child.receiveShadow = true;
-
-          }
-
-        });
-
-
-
-        /* calcular tamaño */
-
-        const box =
-          new THREE.Box3()
-          .setFromObject(model);
-
-        const center =
-          box.getCenter(
-            new THREE.Vector3()
-          );
-
-        const size =
-          box.getSize(
-            new THREE.Vector3()
-          );
-
-
-
-        /* centrar modelo */
-
-        model.position.x -= center.x;
-        model.position.y -= center.y;
-        model.position.z -= center.z;
-
-
-
-        /* tamaño máximo */
-
-        const maxDim =
-          Math.max(
-            size.x,
-            size.y,
-            size.z
-          );
-
-
-
-        /* distancia automática cámara */
-
-        const fov =
-          camera.fov *
-          (Math.PI / 180);
-
-        let cameraDistance =
-          Math.abs(
-            maxDim /
-            (2 * Math.tan(fov / 2))
-          );
-
-        cameraDistance *= 1.55;
-
-
-
-        camera.position.set(
-
-          cameraDistance * 0.75,
-
-          cameraDistance * 0.45,
-
-          cameraDistance
-
-        );
-
-
-
-        camera.near =
-          maxDim / 100;
-
-        camera.far =
-          maxDim * 100;
-
-        camera.updateProjectionMatrix();
-
-
-
-        controls.target.set(
-          0,
-          0,
-          0
-        );
-
-        controls.minDistance =
-          maxDim * 0.6;
-
-        controls.maxDistance =
-          maxDim * 5;
-
-        controls.update();
-
-
-
-        /* ocultar loading */
-
-        loading.classList.add(
-          "hidden"
-        );
-
-      },
-
-
-
-      function (xhr) {
-
-        if (xhr.total) {
-
-          const porcentaje =
-            xhr.loaded /
-            xhr.total *
-            100;
-
-          console.log(
-            Math.round(porcentaje)
-            + "% cargado"
-          );
-
-        }
-
-      },
-
-
-
-      function (error) {
-
-        console.error(
-          "Error cargando Skyloop:",
-          error
-        );
-
-      }
-
-    );
-
-
-
-    /* ---------------------------------------------------------
-       DETENER AUTOROTACION
-       CUANDO EL USUARIO INTERACTUA
-    --------------------------------------------------------- */
-
-    renderer.domElement.addEventListener(
-      "pointerdown",
-      () => {
-
-        controls.autoRotate = false;
-
-      }
-    );
-
-
-
-    renderer.domElement.addEventListener(
-      "wheel",
-      () => {
-
-        controls.autoRotate = false;
-
-      }
-    );
-
-
-
-    /* ---------------------------------------------------------
-       RESIZE
-    --------------------------------------------------------- */
-
-    window.addEventListener(
-      "resize",
-      () => {
-
-        camera.aspect =
-          window.innerWidth /
-          window.innerHeight;
-
-        camera.updateProjectionMatrix();
-
-        renderer.setSize(
-          window.innerWidth,
-          window.innerHeight
-        );
-
-      }
-    );
-
-
-
-    /* ---------------------------------------------------------
-       ANIMACION
-    --------------------------------------------------------- */
-
-    function animate() {
-
-      requestAnimationFrame(
-        animate
-      );
-
-      controls.update();
-
-      renderer.render(
-        scene,
-        camera
-      );
-
-    }
-
-    animate();
-
-
-  </script>
 
 </body>
 </html>
