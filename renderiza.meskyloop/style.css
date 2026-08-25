@@ -1048,5 +1048,21 @@ footer p {
     gap: 30px;
 
   }
+.scroll-zone {
+  position: absolute;
 
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 150px;
+
+  z-index: 4;
+
+  background: transparent;
+
+  pointer-events: auto;
+
+  touch-action: pan-y;
+}
 }
