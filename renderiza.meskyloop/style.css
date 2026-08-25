@@ -182,28 +182,29 @@ body {
 
   0% {
     opacity: 0;
-    transform: translateX(-50%) translateY(-8px);
+    transform: translate(-50%, -8px);
   }
 
   15% {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translate(-50%, 0);
   }
 
   45% {
     opacity: 1;
-    transform: translateX(-50%) translateY(10px);
+    transform: translate(-50%, 12px);
   }
 
   60% {
     opacity: 0;
-    transform: translateX(-50%) translateY(15px);
+    transform: translate(-50%, 18px);
   }
 
   100% {
     opacity: 0;
-    transform: translateX(-50%) translateY(15px);
+    transform: translate(-50%, 18px);
   }
+}
 
 }
 
