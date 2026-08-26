@@ -1,4 +1,4 @@
-import * as THREE
+import * as THREEasd
 from "three";
 
 import { OrbitControls }
